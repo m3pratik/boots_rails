@@ -1,0 +1,20 @@
+<h1><%= @post.title %></h1>
+<p>
+  Blogger Name :
+  <%= @post.name %>
+</p>
+<br><br>
+<h2><b> Content of this Post </b></h2><br>
+<p>
+  <%= @post.content %>
+</p>
+
+<%= link_to "Add Comment" ,new_comment_path(@post) %>
+
+<% @comments.each do |comm| %>
+<ul>
+  
+  <%= comm.name %> says :
+    <%= comm.content %>
+</ul>
+<% end %>
