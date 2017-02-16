@@ -10,11 +10,15 @@
 </p>
 
 <%= link_to "Add Comment" ,new_comment_path(@post) %>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "show all Comments" ,comment_path(@post) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "edit" , edit_post_path(@post.id) %>
 
+<fieldset>
+  <legend>All Comments</legend>
 <% @comments.each do |comm| %>
 <ul>
-  
+
   <%= comm.name %> says :
     <%= comm.content %>
 </ul>
 <% end %>
+</fieldset>

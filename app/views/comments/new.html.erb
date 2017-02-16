@@ -1,34 +1,33 @@
-<h1>Create Comment</h1>
-<%= @pidd %>
-<table>
-  <%= form_for @comment do |t| %>
-  <% if @comment.errors.any? %>
-  <h2> Errors: </h2>
-  <ul>
-      <% @comment.errors.full_messages.each do |err| %>
-        <li><%= err %></li>
-      <% end %>
-  </ul>
-  <% end %>
-  <tr>
-    <td><%=t.label("Name : ")%></td>
-    <td><%=t.text_field :name %></td>
-  </tr>
-
-    <tr>
-      <td><%=t.label("Content : ")%></td>
-      <td><%=t.text_area :content %></td>
-    </tr>
-      <tr>
-  <%= t.hidden_field :post_id, :value => params[:id] %>
-      <td><%=t.submit %></td>
-    </tr>
 
 
+<fieldset>
+  <legend>Create Comment</legend>
+  <ol>
+    <%= form_for @comment do |t| %>
+    <% if @comment.errors.any? %>
+    <h2> Errors: </h2>
+    <ul>
+        <% @comment.errors.full_messages.each do |err| %>
+          <li><%= err %></li>
+        <% end %>
+    </ul>
+    <% end %>
+  <li>
+    <%=t.label("Name : ")%> &nbsp;&nbsp;
+    <%=t.text_field :name %>
+    </li>
+  <li>
+    <%=t.label("Content : ")%>
+    <%=t.text_area :content %>
+    </li>
+  <li>
+    <%= t.hidden_field :post_id, :value => params[:id] %>
+        <%=t.submit %>
+    </li>
+  <li>
+    <%= link_to "Back", posts_path %>
+    </li>
 
+  </ol>
+</fieldset>
 <%end%>
-
-</table>
-
-<%= link_to "Back", posts_path %>
-<%= button_to 'Add Class', posts_path, class: "btn btn-primary"%>

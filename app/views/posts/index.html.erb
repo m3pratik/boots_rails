@@ -1,11 +1,15 @@
 <h1> All Created Post is here </h1>
 <h3>Index for Post</h3>
-<h1> All Post </h1>
 
+<fieldset>
+  <legend><h2>All Post </h2></legend>
 <ul>
 <% @posts.each do |post| %>
-<li><%= link_to post.title, post_path(post.id) %></li>
+<li><%= link_to post.title, post_path(post.id) %>
+</li>
+
+
 <%end%>
 </ul>
-
+</fieldset>
 <%= link_to "Add New Post" ,new_post_path %>
